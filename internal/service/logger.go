@@ -11,14 +11,14 @@ type LoggerService struct {
 }
 
 func NewLoggerService(ctx context.Context) *LoggerService {
-	logger := &LoggerService{
+	l := &LoggerService{
 		srvCtx: ctx,
 		msg:    make(chan string),
 	}
 
-	go logger.start()
+	go l.start()
 
-	return logger
+	return l
 }
 
 func (s *LoggerService) start() {
